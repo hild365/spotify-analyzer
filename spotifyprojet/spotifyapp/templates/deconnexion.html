@@ -1,0 +1,20 @@
+<!-- temp_logout.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Déconnexion</title>
+    <meta http-equiv="refresh" content="2;url=https://www.spotify.com/logout/">
+
+</head>
+<body> 
+    {% verbatim %}
+    <script type="text/javascript">
+        window.location.href = 'https://accounts.spotify.com/logout';
+        setTimeout(function(){
+            window.location.href = '{% url "connexion" %}'; // Remplacez 'index' par votre vue de redirection
+        }, 3000); // Attendre 3 secondes avant la redirection
+    </script>
+    {% endverbatim %}
+    <p>Déconnexion de Spotify en cours... Vous serez redirigé vers l'application dans quelques secondes.</p>
+</body>
+</html>

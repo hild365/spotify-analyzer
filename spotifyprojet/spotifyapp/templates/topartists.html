@@ -1,0 +1,44 @@
+{% extends "base.html" %} {%block title%}TOP Artistes{%endblock%} {% block
+content %}
+<div class="container mt-5">
+  <h3>TOP ARTISTES DU MOIS SPOTIFY</h3>
+  <div>
+    {% if data %}
+    <table class="table table-borderless">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Nom</th>
+          <th scope="col">Genre</th>
+          <th scope="col">Suivi&#40;s&#41;</th>
+          <th scope="col">Lien</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for a in data %}
+        <tr>
+          <th scope="row">{{ forloop.counter }}</th>
+          <td>
+            <img
+              src="{{ a.image }}"
+              alt="{{ a.nom }}"
+              style="width: 50px; height: 50px"
+            />
+            {{ a.nom }}
+          </td>
+          <td>
+            {% if not a.genre %} {{ "Musique" }} {% else %} {{ a.genre }} {%
+            endif %}
+          </td>
+          <td>{{a.followers}}</td>
+          <td>
+            <a href="{{a.url}}" target="_blank">Voir plus</a>
+          </td>
+        </tr>
+        {%endfor%}
+      </tbody>
+    </table>
+    {% endif %}
+  </div>
+</div>
+{% endblock %}

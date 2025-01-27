@@ -1,0 +1,40 @@
+{%extends "base.html" %} {%block title%}TOP SONS{%endblock%} {% block content %}
+<div class="container mt-5">
+  <h3>TON TOP DES SONS ÉCOUTÉS PENDANT LE MOIS</h3>
+  {% if data %}
+  <table class="table table-borderless">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Nom</th>
+        <th scope="col">Artiste&#40;s&#41;</th>
+        <th scope="col">Album</th>
+        <th scope="col">Durée</th>
+        <th scope="col">Lien</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for a in data %}
+      <tr>
+        <th scope="row">{{ forloop.counter }}</th>
+        <td>
+          <img
+            src="{{ a.image }}"
+            alt="{{ a.nom }}"
+            style="width: 50px; height: 50px"
+          />
+          {{ a.nom }}
+        </td>
+        <td>{{a.artiste}}</td>
+        <td>{{a.album}}</td>
+        <td>{{a.min}}:{{a.sec}}</td>
+        <td>
+          <a href="{{a.url}}" target="_blank">Listen</a>
+        </td>
+      </tr>
+      {%endfor%}
+    </tbody>
+  </table>
+  {% endif %}
+</div>
+{%endblock%}

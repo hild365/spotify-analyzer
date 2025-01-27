@@ -1,0 +1,37 @@
+{% extends 'base.html' %} {% block title %}Analyse Statistiques{% endblock %} {%
+block content %}
+<div class="container mt-5">
+  <h1 class="display-4">Analyse Statistiques</h1>
+  <hr class="my-4" />
+  <div class="row">
+    <div class="col-md-8">
+      <h3>Quelques Graphiques</h3>
+      <img src="{{image_uri_genres}}" alt="none" class="img-fluid" />
+      <p class="mt-3">
+        <strong>Remarque:</strong> Spotify ne retourne pas toutes les données.
+        Il peut avoir des données manquants non pris en compte dans le graphe
+        ci-dessus.
+      </p>
+      <img src="{{image_uri_artist}}" alt="none" class="img-fluid mt-3" />
+    </div>
+    <div class="col-md-4">
+      <div class="row">
+        <h3>
+          Genres
+          <small class="text-body-secondary">En fonction de top 25 sons</small>
+        </h3>
+        {% for genre in genre_keys %}
+        <div class="col-md-6 mb-3">
+          <div class="card" style="max-width: 18rem">
+            <div class="card-body">
+              <h5 class="card-title">{{ genre }}</h5>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
