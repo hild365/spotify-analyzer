@@ -18,7 +18,7 @@ db.sqlite3
 media
 
 # Environments
-.env
+./spotifyproject/.env
 .venv
 env/
 venv/
