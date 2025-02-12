@@ -1,5 +1,5 @@
-{% extends "base.html" %} {%block title%}TOP Artistes{%endblock%} {% block
-content %}
+{% extends "base.html" %} {%block title%}TOP Artistes{%endblock%} 
+{% block content %}
 <div class="container mt-5">
   <h3>TOP ARTISTES DU MOIS SPOTIFY</h3>
   <div>
@@ -27,8 +27,9 @@ content %}
             {{ a.nom }}
           </td>
           <td>
-            {% if not a.genre %} {{ "Musique" }} {% else %} {{ a.genre }} {%
-            endif %}
+            {% if not a.genre %} 
+            {{ "Musique" }} {% else %} {{ a.genre }} 
+            {%endif %}
           </td>
           <td>{{a.followers}}</td>
           <td>
